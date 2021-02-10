@@ -15,3 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// ●アカウント登録関係
+// サインアップ画面
+Route::get('/user/sign_up', 'UserController@sign_up');
+
+// ログイン画面
+Route::get('/user/login', 'UserController@login');
