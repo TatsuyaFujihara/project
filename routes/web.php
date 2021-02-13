@@ -16,8 +16,9 @@ Route::get('/', function () {
 });
 
 // ●アカウント登録関係
+
 // サインアップ画面
-Route::get('/user/sign_up', 'UserController@sign_up');
+Route::get('/user/sign_up', 'UserController@create');
 
 // ログイン画面
-Route::get('/user/login', 'UserController@login');
+Route::get('/user/login', 'UserController@index');
