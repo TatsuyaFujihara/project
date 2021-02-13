@@ -39,12 +39,12 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="/user/sign_up" class="nav-link text-white-50 h5 my-auto mx-3">
+                            <a href="/user/create" class="nav-link text-white-50 h5 my-auto mx-3">
                                  Sign-Up 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/user/login" class="nav-link text-white-50 h5 my-auto mx-3">
+                            <a href="/user" class="nav-link text-white-50 h5 my-auto mx-3">
                                   Login
                             </a>
                         </li>

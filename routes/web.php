@@ -17,8 +17,5 @@ Route::get('/', function () {
 
 // ●アカウント登録関係
 
-// サインアップ画面
-Route::get('/user/sign_up', 'UserController@create');
-
-// ログイン画面
-Route::get('/user/login', 'UserController@index');
+// リソースフル確認
+Route::resource('user', 'UserController', ['only' => ['index', 'create']]);
