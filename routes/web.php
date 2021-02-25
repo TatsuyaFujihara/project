@@ -11,11 +11,13 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () 
+{
     return view('welcome');
 });
 
 // ●アカウント登録関係
 
 // リソースフル確認
-Route::resource('user', 'UserController', ['only' => ['index', 'create']]);
+Route::resource('user', 'UserController', ['only' => ['index', 'create', 'store', 'show']]);
+

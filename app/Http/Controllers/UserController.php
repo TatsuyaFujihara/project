@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use App\Sign_up;
+use App\Http\Requests\PostRequest;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -19,29 +23,12 @@ class UserController extends Controller
         return view('user/sign_up');
     }
 
-    public function store(Request $request)
+// サインアップ動作（DB/バリデーション関係の動作）
+    public function store(PostRequest $request)
     {
-        //
+        $name = $request->input('name');
+        // dd($name);
+        return view('home', compact('name'));
     }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
-
+    
 }
