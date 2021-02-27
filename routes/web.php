@@ -19,5 +19,5 @@ Route::get('/', function ()
 // ●アカウント登録関係
 
 // リソースフル確認
-Route::resource('user', 'UserController', ['only' => ['index', 'create', 'store', 'show']]);
+Route::resource('user', 'UserController', ['only' => ['index', 'create', 'store']]);
 

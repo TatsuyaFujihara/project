@@ -26,9 +26,10 @@ class UserController extends Controller
 // サインアップ動作（DB/バリデーション関係の動作）
     public function store(PostRequest $request)
     {
-        $name = $request->input('name');
+        $name = $request->name;
         // dd($name);
         return view('home', compact('name'));
     }
     
+
 }
