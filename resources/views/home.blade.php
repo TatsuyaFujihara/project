@@ -16,6 +16,7 @@
                     @endif
                     You are logged in!
                 </div>
+                <a href="todo" class="ml-5">・To-Doリストアプリ</a>
             </div>
         </div>
     </div>
