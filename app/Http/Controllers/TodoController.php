@@ -10,7 +10,7 @@ class TodoController extends Controller
     public function index()
     {
         $lists = Todo::all();
-        return view('todo/todo', ['lists' => $lists]);
+        return view('todo/todo', compact('lists'));
     }
 
     public function store(Request $request)
