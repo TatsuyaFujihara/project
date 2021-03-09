@@ -22,4 +22,11 @@ class TodoController extends Controller
             ]);
         return redirect('/todo');
     }
+
+    public function destroy($id)
+    {
+        $del = Todo::find($id);
+        $del->delete();
+        return redirect('/todo');
+    }
 }

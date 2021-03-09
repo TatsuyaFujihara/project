@@ -27,10 +27,17 @@
             <?php $counter=1; ?>
             @foreach ($lists as $list)
               　<tbody>
-                  <tr>
-                      <th scope="row">{{ $counter }}</th>
-                      <td>{{ $list->content }}</td>
-                      <td><button type="button">作業中</button><button type="button">削除</button></td>
+                    <tr>
+                        <th scope="row">{{ $counter }}</th>
+                        <td>{{ $list->content }}</td>
+                        <td>
+                            <button type="submit">作業中</button>
+                            <form method="post" action="{{ route('todo.destroy', $list->id) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">削除</button>
+                            </form>
+                        </td>
                     </tr>
                 </tbody>
                 <?php $counter++; ?>

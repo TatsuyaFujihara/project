@@ -22,4 +22,4 @@ Route::get('/', function ()
 Route::resource('user', 'UserController', ['only' => ['index', 'create', 'store']]);
 
 // ToDoアプリケーション
-Route::resource('todo', 'TodoController', ['only' => ['index', 'store']]);
+Route::resource('todo', 'TodoController', ['only' => ['index', 'store', 'destroy']]);
