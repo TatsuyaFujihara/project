@@ -11,13 +11,15 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () 
+{
     return view('welcome');
 });
 
 // ●アカウント登録関係
-// サインアップ画面
-Route::get('/user/sign_up', 'UserController@sign_up');
 
-// ログイン画面
-Route::get('/user/login', 'UserController@login');
+// ユーザー管理　リソースフル確認
+Route::resource('user', 'UserController', ['only' => ['index', 'create', 'store']]);
+
+// ToDoアプリケーション
+Route::resource('todo', 'TodoController', ['only' => ['index', 'store', 'destroy']]);

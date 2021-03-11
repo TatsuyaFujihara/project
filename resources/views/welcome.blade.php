@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Project
+                    project
                 </div>
 
                 <div class="links">
@@ -93,7 +93,7 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                    <a href="/user/sign_up">SIGN-UP</a>
+                    <a href="/user">Login</a>
                 </div>
             </div>
         </div>
