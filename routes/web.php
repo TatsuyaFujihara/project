@@ -22,4 +22,7 @@ Route::get('/', function ()
 Route::resource('user', 'UserController', ['only' => ['index', 'create', 'store']]);
 
 // ToDoアプリケーション
-Route::resource('todo', 'TodoController', ['only' => ['index', 'store', 'destroy']]);
+Route::resource('todo', 'TodoController', ['only' => ['index', 'store', 'update', 'destroy']]);
+
+// ToDo-タスク完了・未完了判定
+Route::post('/todo/done/{id}', 'TodoController@done')->name('todo.done');

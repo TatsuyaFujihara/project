@@ -24,14 +24,29 @@
                   <th scope="col">状態</th>
                 </tr>
             </thead>
-            <?php $counter=1; ?>
             @foreach ($lists as $list)
               　<tbody>
                     <tr>
-                        <th scope="row">{{ $counter }}</th>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $list->content }}</td>
+                        {{-- タスクの作業状態変更 --}}
+                            <form method="post" action="{{ route('todo.update', $list->id) }}">
+                                @csrf
+                                @method('PUT')
+                            @if ($list->state == 0)
+                                <td>
+                                    <input class="unCompleted" type="submit" value="作業中">
+                                    <input type="hidden" name="state" value="1">
+                                </td>
+                            @else 
+                                <td>
+                                    <input class="unCompleted" type="submit" value="完了">
+                                    <input type="hidden" name="state" value="0">
+                                </td>
+                            @endif
+                            </form>
                         <td>
-                            <button type="submit">作業中</button>
+                        {{-- タスクの削除機能 --}}
                             <form method="post" action="{{ route('todo.destroy', $list->id) }}">
                                 @csrf
                                 @method('DELETE')
@@ -40,7 +55,6 @@
                         </td>
                     </tr>
                 </tbody>
-                <?php $counter++; ?>
             @endforeach
         </table>
 {{-- 新規タスクの追加フォーム --}}
@@ -55,7 +69,7 @@
             <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-4">
                     <button type="submit" class="btn btn-primary">
-                        {{ __('追加') }}
+                        追加
                     </button>
                 </div>
             </div>
