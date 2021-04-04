@@ -1,16 +1,13 @@
 // ⏬非同期通信機能にする場合"async function"が必要
-async function status() {
+function status() {
 // ⏬"todo.blade.php"のチェックボックスの情報を全取得
     radio = document.getElementsByName('select');
-    console.log(radio);
 // ⏬”完了”のリスト情報を取得
-    var completes = document.querySelectorAll('.completed');
-    console.log(completes);
+    const completes = document.querySelectorAll('.completed');
 // ⏬"作業中”のリスト情報を取得
-    var unCompletes = document.querySelectorAll('.unCompleted');
-    console.log(unCompletes);
+    const unCompletes = document.querySelectorAll('.unCompleted');
 // ⏬全リスト情報を取得
-    var tasks = document.querySelectorAll('.tasks');
+    const tasks = document.querySelectorAll('.tasks');
     
     
 // ⏬チェックボックスで［1］（作業中）が選択されると、"完了"状態のタスクを非表示
