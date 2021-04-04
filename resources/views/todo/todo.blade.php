@@ -3,18 +3,12 @@
 @section('content')
     <div class="container">
 {{-- 絞り込み機能の表示 --}}
-        <div class="form-check form-check-inline mb-1">
-            <input type="radio">
-            <label>すべて</label>
-        </div>
-        <div class="form-check form-check-inline mb-1">
-            <input type="radio">
-            <label>作業中</label>
-        </div>
-        <div class="form-check form-check-inline mb-1">
-            <input type="radio">
-            <label>完了</label>
-        </div>
+    <div class="form-check-inline">
+        <label><input class="form-check-input" type="radio" name="select" value="0" onclick="status()" checked>全て</label>    
+        <label><input class="form-check-input" type="radio" name="select" value="1" onclick="status()">作業中</label>
+        <label><input class="form-check-input" type="radio" name="select" value="2" onclick="status()">完了</label>
+    </div>
+
 {{-- 追加したタスクの表示 --}}
         <table class="table">
             <thead>
@@ -26,27 +20,27 @@
             </thead>
             @foreach ($lists as $list)
               　<tbody>
-                    <tr>
+                    <tr class="tasks">
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $list->content }}</td>
                         {{-- タスクの作業状態変更 --}}
-                            <form method="post" action="{{ route('todo.update', $list->id) }}">
-                                @csrf
-                                @method('PUT')
-                            @if ($list->state == 0)
-                                <td>
-                                    <input class="unCompleted" type="submit" value="作業中">
-                                    <input type="hidden" name="state" value="1">
-                                </td>
-                            @else 
-                                <td>
-                                    <input class="unCompleted" type="submit" value="完了">
-                                    <input type="hidden" name="state" value="0">
-                                </td>
-                            @endif
-                            </form>
-                        <td>
+                        <form method="post" action="{{ route('todo.update', $list->id) }}">
+                            @csrf
+                            @method('PUT')
+                        @if ($list->state == 0)
+                            <td>
+                                <input class="unCompleted" type="submit" value="作業中">
+                                <input type="hidden" name="state" value="1">
+                            </td>
+                        @else 
+                            <td>
+                                <input class="completed" type="submit" value="完了">
+                                <input type="hidden" name="state" value="0">
+                            </td>
+                        @endif
+                        </form>
                         {{-- タスクの削除機能 --}}
+                        <td>
                             <form method="post" action="{{ route('todo.destroy', $list->id) }}">
                                 @csrf
                                 @method('DELETE')
